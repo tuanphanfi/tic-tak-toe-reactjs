@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 
-export default function Square ({onClick, value}) {
-    // const [valueOfSquare, setValueOfSquare] = useState(null)
+export default class Square extends Component {
+    
 
+    render() {
         return (
-
-            <button className="square" onClick={() => this.onClick()}>
-                {value}
-            </button>
-
-            // <div onClick={()=>alert("test")} className="text-danger border border-danger d-flex justify-content-center align-items-center abc ">
-            //     {this.state.value}
-            // </div>
+            <>
+                <div onClick={() => this.props.playerTurn()} className="col-4 text-danger border border-danger d-flex justify-content-center align-items-center abc ">
+                    {this.props.value}
+                </div>
+            </>
         )
+    }
 }

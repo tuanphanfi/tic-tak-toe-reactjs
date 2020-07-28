@@ -7,7 +7,12 @@ export default class App extends Component {
     this.state = {
       squares: Array(9).fill(null),
       xIsNext: true,
+      status: "playing"
     };
+  }
+
+  setParentsState = (obj) => {
+    this.setState(obj)
   }
 
 
@@ -16,7 +21,10 @@ export default class App extends Component {
 
     return (
       <div className="App d-flex justify-content-center align-items-center">
-        <Board squares={this.state.squares} />
+        <Board 
+        status={this.state.status}
+        
+        xIsNext={this.state.xIsNext} squares={this.state.squares} setParentsState={this.setParentsState} />
 
       </div>
     );
