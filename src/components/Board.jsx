@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Square from "./Square";
+
 export default class Board extends Component {
   calculateWinner(squares) {
     // the lines array below is for every winning combination
@@ -36,23 +37,6 @@ export default class Board extends Component {
   }
 
   playerTurn = (index) => {
-    // let gameOverValue = this.props.gameOver;
-    // counting time function here
-
-    // this.props.setParentsState({
-    //     gameInProcess : true
-
-    // })
-
-    // if(this.props.gameInProcess ===true){
-    //     this.props.countTime();
-    // } else {
-    //     clearInterval(this.props.timer)
-    // }
-
-    // if (this.props.gameInProcess === false) {
-    //   clearInterval(this.props.timer);
-    // }
     let array = this.props.squares.slice();
     let historyArray = this.props.history;
 
@@ -66,6 +50,7 @@ export default class Board extends Component {
     }
     if (array[index] === null) {
       if (this.props.xIsNext === true) {
+        // array[index] = "X";
         array[index] = "X";
 
         this.calculateWinner(array);
@@ -100,17 +85,20 @@ export default class Board extends Component {
 
   render() {
     return (
-      <div className="">
-        <div className="a">
-          <h1>Next player: {this.props.xIsNext === true ? "x" : "o"}</h1>
-
+      <div className="col-5 p-0">
+        <div className="playerAndStatus">
+          <h1 className="text-center bg-white text-warning p-2 m-0">Next player: {this.props.xIsNext === true ? "x" : "o"}</h1>
+          {/* <StartButton
+              setParentsState={this.setParentsState}
+              countTime={this.countTime}
+            /> */}
           {/* <h1>{this.props.gameOver == true
                         ? 'game over'
                         : this.props.status}
                     </h1> */}
-          <h1>{this.props.status}</h1>
+          <h1 className="text-center bg-dark text-success p-2 m-0">{this.props.status}</h1>
         </div>
-        <div className="row">
+        <div className="row m-0">
           {this.props.squares.map((item, index) => {
             return (
               <Square

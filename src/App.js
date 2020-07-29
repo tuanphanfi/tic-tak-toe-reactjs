@@ -3,8 +3,8 @@ import Board from "./components/Board";
 import FacebookLogin from "react-facebook-login";
 import FacebookInfo from "./components/FacebookInfo";
 import Highscores from "./components/Highscores";
-import TimeCounting from "./components/TimeCounting";
-import StartButton from "./components/StartButton";
+import History from "./components/History";
+
 let timer;
 
 export default class App extends Component {
@@ -81,7 +81,8 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div className="App d-flex justify-content-center align-items-center">
+      <div className="App ">
+        {/* navigation */}
         {this.state.userName === "" ? (
           <FacebookLogin
             autoLoad={false}
@@ -95,46 +96,48 @@ export default class App extends Component {
               userName={this.state.userName}
               email={this.state.email}
               avatarUrl={this.state.avatarUrl}
+              time={this.state.time}
+              setParentsState={this.setParentsState}
+              countTime={this.countTime}
             />
+
+            
           </div>
         )}
 
-        <Board
-          gameInProcess={this.state.gameInProcess}
-          countTime={this.countTime}
-          timer={timer}
-          history={this.state.history}
-          status={this.state.status}
-          gameOver={this.state.gameOver}
-          xIsNext={this.state.xIsNext}
-          squares={this.state.squares}
-          setParentsState={this.setParentsState}
-          postData={this.postData}
-          test={this.state.test}
-          winner={this.state.winner}
-          {...this.state}
-        />
-        <ol>
-          History
-          {this.state.history.map((_, index) => {
-            return (
-              <li>
-                <button onClick={() => this.backToPast(index)}>
-                  Go To:{index + 1}
-                </button>
-              </li>
-            );
-          })}
-        </ol>
-        <Highscores />
+        {/* closed nav */}
 
-        <TimeCounting time={this.state.time} />
-        {/* <button onClick={() => clearInterval(timer)}>Stop Time</button> */}
-        <StartButton 
-        setParentsState={this.setParentsState}
-        countTime={this.countTime} 
-        
-        />
+        {/* body */}
+
+        <div className="container">
+          <div className="row">
+            <Highscores />
+            {/* <StartButton
+              setParentsState={this.setParentsState}
+              countTime={this.countTime}
+            /> */}
+            <Board
+              gameInProcess={this.state.gameInProcess}
+              countTime={this.countTime}
+              timer={timer}
+              history={this.state.history}
+              status={this.state.status}
+              gameOver={this.state.gameOver}
+              xIsNext={this.state.xIsNext}
+              squares={this.state.squares}
+              setParentsState={this.setParentsState}
+              postData={this.postData}
+              test={this.state.test}
+              winner={this.state.winner}
+              {...this.state}
+            />
+
+            <History history={this.state.history}/>
+          </div>
+
+          {/* <TimeCounting time={this.state.time} /> */}
+          {/* <button onClick={() => clearInterval(timer)}>Stop Time</button> */}
+        </div>
       </div>
     );
   }

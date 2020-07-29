@@ -11,7 +11,7 @@ export default class StartButton extends Component {
   };
   render() {
     return <div>
-        <button onClick={()=>this.countTime()}>Start</button>
+        <button className="btn btn-outline-success" onClick={()=>this.countTime()}>Start</button>
     </div>;
   }
 }

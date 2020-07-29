@@ -30,14 +30,15 @@ export default class Highscores extends Component {
       return <h1>Loading...</h1>;
     }
     return (
-      <>
+      <div className="col-3 ranking bg-white p-0">
         <ol>
-          Ranking
+          <h2 className="text-center bg-warning text-white p-3 m-0">Ranking</h2>
+          
           {this.state.players.map((item, index) => {
-            return <li>{item.player}</li>;
+            return <li className="d-flex justify-content-center align-items-center bg-dark text-warning ml-0 mt-0 p-2 text- border border-warning text-center" >{index+1} - {item.player}</li>;
           })}
         </ol>
-      </>
+      </div>
     );
   }
 }

@@ -1,23 +1,65 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.row {
+  /* height: 50vh; */
+  /* width: 32vw; */
+}
 
-.abc {
-  height: 20vh;
-  width: 10vw;
+.square {
+  height: 22vh;
+  width: 22vw;
+  overflow: hidden;
+  background: white;
 }
 
 .App {
   height: 100vh;
+}
+
+body {
+  background-image: url("/img/cD5.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.history h2,
+.ranking h2 {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.ranking li {
+  height: 7.5vh;
+}
+
+.ranking ol {
+  margin: 0;
+}
+
+.playerAndStatus h1:first-child {
+  height: 9.9vh;
+}
+
+.history,
+.ranking ol {
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.history ol {
+  padding: 0;
 }
