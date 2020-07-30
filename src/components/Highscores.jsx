@@ -8,7 +8,7 @@ export default class Highscores extends Component {
     };
   }
   getData = async () => {
-    const url = `http://ftw-highscores.herokuapp.com/tictactoe-dev`;
+    const url = `https://ftw-highscores.herokuapp.com/tictactoe-dev`;
 
     let data = await fetch(url);
     // console.log(typeof data);
@@ -33,9 +33,13 @@ export default class Highscores extends Component {
       <div className="col-3 ranking bg-white p-0">
         <ol>
           <h2 className="text-center bg-warning text-white p-3 m-0">Ranking</h2>
-          
+
           {this.state.players.map((item, index) => {
-            return <li className="d-flex justify-content-center align-items-center bg-dark text-warning ml-0 mt-0 p-2 text- border border-warning text-center" >{index+1} - {item.player}</li>;
+            return (
+              <li className="d-flex justify-content-center align-items-center bg-dark text-warning ml-0 mt-0 p-2 text- border border-warning text-center">
+                {index + 1} - {item.player}
+              </li>
+            );
           })}
         </ol>
       </div>
