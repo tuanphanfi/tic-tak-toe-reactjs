@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Square from "./Square";
+import purpleMinion from "../img/purpleMinion.png";
+import yellowMinion from "../img/yellowMinion.png";
 
 export default class Board extends Component {
   calculateWinner(squares) {
@@ -87,18 +89,11 @@ export default class Board extends Component {
     return (
       <div className="col-5 p-0">
         <div className="playerAndStatus">
-          <h1 className="text-center bg-white text-warning p-2 m-0">Next player: {this.props.xIsNext === true ? "x" : "o"}</h1>
-          {/* <StartButton
-              setParentsState={this.setParentsState}
-              countTime={this.countTime}
-            /> */}
-          {/* <h1>{this.props.gameOver == true
-                        ? 'game over'
-                        : this.props.status}
-                    </h1> */}
-          <h1 className="text-center bg-dark text-success p-2 m-0">{this.props.status}</h1>
+          <h1 className="text-center bg-white text-warning p-2 m-0">Next player: {this.props.xIsNext === true ? <img style={{height: "8vh"}} src={purpleMinion} alt=""/> : <img style={{height: "8vh"}} src={yellowMinion} alt=""/>    }</h1>
+          
+          <h1 className="a text-center bg-dark text-success p-2 m-0">{this.props.status}</h1>
         </div>
-        <div className="row m-0">
+        <div className="row m-0 ">
           {this.props.squares.map((item, index) => {
             return (
               <Square

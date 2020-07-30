@@ -8,7 +8,7 @@ export default class Square extends Component {
       <>
         <div
           onClick={() => this.props.playerTurn()}
-          className=" col-4 text-danger border border-danger d-flex justify-content-center align-items-center square "
+          className="col-4 text-danger  d-flex justify-content-center align-items-center square "
         >
           {this.props.value === "X" ? (
             <img src={purpleMinion} alt="" />
